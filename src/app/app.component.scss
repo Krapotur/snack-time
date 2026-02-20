@@ -48,6 +48,7 @@ main{
   overflow: auto; /* Включить прокрутку */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE и Edge */
+  background-color: white;
 }
 
 .category-container {
@@ -191,6 +192,8 @@ main{
   }
 
   .categories-list{
+    position: sticky;  
+    top: 0; 
     width: 100%;  
   }
 
@@ -266,6 +269,8 @@ main{
 
   .categories-list{
     width: 100%;
+    position: sticky;  
+    top: 0; 
   }
 
   .dishes-list{
