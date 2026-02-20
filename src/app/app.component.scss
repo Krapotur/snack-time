@@ -1,90 +1,178 @@
 $primary-color: rgb(244, 121, 32);
+$color-text-title: rgb(48, 48, 48);
+$color-bg-transparent: rgba(255, 255, 255, 0.648);
+$gradient-color: linear-gradient(180deg, rgba(250, 106, 2, 1.0),
+    rgba(242, 138, 63, 1.0));
+
+@keyframes title {
+  0% {
+    transform: translateX(150%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dishes {
+  100% {
+    transform: translateX(0);
+  }
+
+  0% {
+    transform: translateY(100%);
+  }
+}
 
 h2,
 h3 {
   margin: 0;
   padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.flex-row {
+  display: flex;
+  align-items: end;
+  padding: 2px 0;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .card {
-  // width: 80%;
+  position: relative;
   margin: 0 auto;
   min-width: 300px;
   height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   justify-content: end;
-  background-image: url("../assets/images/rest/kochevnik.png");
+  // background-image: url("../assets/images/rest/kochevnik.png");
+  // background-repeat: no-repeat;
+  // background-position: 20% 60%;
+  // background-size: cover;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.img-establishment {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
-  background-position: 20% 60%;
-  background-size: cover;
+  // background-size: cover;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 
 .title-container {
-  display: flex;
-  align-items: center;
-  margin: 0 0 10px 10px;
-  padding: 10px 20px;
+  transform: translateX(-150%);
+  animation: title 1s forwards;
+
+  position: absolute;
+  margin: 0 0 10px;
+  padding: 5px 20px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.648);
+  background-color: $color-bg-transparent;
+
+  .coffee-img {
+    width: 30px;
+    margin-right: 3px;
+  }
+
+  span {
+    font-size: 20px;
+    color: $color-text-title;
+  }
 
   h2 {
-    color: rgb(66, 66, 66);
+    line-height: 20px;
+    color: $color-text-title;
   }
 }
 
-main{
+main {
   width: 80%;
   margin: 0 auto;
   background-color: white;
 }
 
-.categories-list{
-  display: flex;
-  margin: 10px 0;
-  overflow: auto; /* Включить прокрутку */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE и Edge */
+.categories-list {
+  transform: translatey(100%);
+  animation: dishes 1s forwards;
+
+  z-index: 1;
+  margin-bottom: 10px;
+  overflow: auto;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 10px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   background-color: white;
-}
 
-.category-container {
-  display: inline-block;
-  padding: 10px 10px;
-  margin: 5px;
-  border-radius: 10px;
-  background-color: rgba(227, 227, 227, 0.648);
+  .category-container {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    background-color: rgb(235, 235, 235);
 
-  h3 {
-    color: grey
+    h3 {
+      font-size: 15px;
+      color: $color-text-title;
+    }
   }
 }
 
-.dishes-list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 10px;
-  padding: 30px 0;
+.category-container-select {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  background: $gradient-color;
 }
 
-/////////////////// Card Dish 
-.dish-card{
-  width: 300px;
+.select-category {
+  font-size: 15px;
+  color: white;
+}
+
+.dishes-list {
+  transform: translatey(100%);
+  animation: dishes 800ms forwards;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  gap: 10px;
+  padding-bottom: 30px;
+  min-width: 300px;
+}
+
+/////////////////// Card Dish
+.dish-card {
+  width: 280px;
+  background-color: white;
   border-radius: 15px;
   -webkit-box-shadow: 0px 0px 19px -3px rgba(34, 60, 80, 0.11);
   -moz-box-shadow: 0px 0px 19px -3px rgba(34, 60, 80, 0.11);
   box-shadow: 0px 0px 19px -3px rgba(34, 60, 80, 0.11);
 
-  .dish-img{
+  .dish-img {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: white;
 
-    img{
+    img {
       width: 100%;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
@@ -94,160 +182,260 @@ main{
     }
   }
 
-  .dish-content{
+  .dish-content {
     padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .dish-weight {
+      font-size: 13px;
+      color: grey;
+    }
   }
 
-  .buy-container{
+  .buy-container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin: 25px 0;
 
-    .buttons-counter{
+    .buttons-counter {
       display: flex;
       align-items: center;
       justify-content: space-around;
-    
-      .btn-bordered{
+
+      .btn-bordered {
         width: 35px;
         height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: 1px solid rgb(216, 216, 216);
-        border-radius:10px;
-        
-        span{
+        border-radius: 10px;
+
+        span {
           line-height: 30px;
           display: inline-block;
           font-size: 30px;
         }
       }
-      
-      .quantity-dish{
+
+      .quantity-dish {
         margin: 0 5px;
         font-size: 25px;
         color: black;
       }
     }
-  
-    .price{
+
+    .price {
       display: flex;
       flex-direction: column;
 
-      .price-actual{
+      .price-actual {
+        font-size: 20px;
+        color: $color-text-title;
+        font-weight: bold;
+      }
+
+      .price-old {
+        line-height: 10px;
+        font-size: 15px;
         text-decoration: line-through;
       }
-      
+
       .price-discount {
+        line-height: 20px;
+        font-size: 20px;
         color: red;
+        font-weight: bold;
       }
     }
 
-    .price span{
-      font-size: 20px;
-      color: black;
-      font-weight: 600;
-    }
-
-    .btn-container{
+    .btn-container {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       padding: 2px;
       height: 40px;
       width: 40px;
       border-radius: 100%;
       background-color: $primary-color;
 
-      span{
+      span {
+        align-self: center;
         line-height: 35px;
         font-size: 40px;
         color: white;
-        font-weight: bold;
       }
     }
   }
 }
 
-@media (max-width: 375px) {
+// @media (max-width: 375px) {
+//   .card {
+//     width: 100%;
+//     height: 180px;
+//   }
+
+//   .title-container {
+//     .coffee-img {
+//       width: 20px;
+//       margin-right: 3px;
+//     }
+
+//     span {
+//       font-size: 15px;
+//       color: $color-text-title;
+//     }
+
+//     h2 {
+//       font-size: 15px;
+//     }
+//   }
+
+//   .title-container img {
+//     padding-left: 5px;
+//     width: 20px;
+//   }
+
+//   .dishes-list {
+//     width: 100%;
+
+//     .dish-card {
+//       width: 150px;
+
+//       .dish-img {
+//         img {
+//           height: 100px;
+//         }
+//       }
+
+//       .dish-title {
+//         font-size: 15px;
+//       }
+
+//       .buy-container {
+//         width: 100%;
+//         margin: 10px 0;
+
+//         .price span {
+//           font-size: 15px;
+//         }
+
+//         .btn-container {
+//           padding: 2px;
+//           height: 30px;
+
+//           span {
+//             line-height: 28px;
+//             font-size: 28px;
+//           }
+//         }
+
+//         .buttons-counter {
+//           .btn-bordered {
+//             width: 20px;
+//             height: 20px;
+//             border-radius: 5px;
+
+//             span {
+//               line-height: 20px;
+//               font-size: 20px;
+//             }
+//           }
+
+//           .quantity-dish {
+//             margin: 0 5px;
+//             font-size: 18px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+@media (max-width: 750px) {
   .card {
     width: 100%;
-    height: 180px;
+    height: 200px;
   }
 
   .title-container {
+    .coffee-img {
+      width: 25px;
+      margin-right: 3px;
+    }
+
+    span {
+      line-height: 17px;
+      font-size: 17px;
+      color: $color-text-title;
+    }
+
     h2 {
-      font-size: 15px;
+      font-size: 20px;
     }
   }
 
-  .title-container img {
-    padding-left: 5px;
-    width: 20px;
+  main {
+    width: 100%;
+    margin: 0 auto;
   }
 
-  .categories-list{
-    position: sticky;  
-    top: 0; 
-    width: 100%;  
-  }
+  .dishes-list {
+    width: 100%;
 
-  .category-container h3 {
-   font-size: 13px;
-  }
+    .dish-card {
+      width: 180px;
 
-  .dishes-list{
-     width: 100%;
-     
-      .dish-card{
-        width: 150px;
-  
-      .dish-img{
-        img{
-          height: 100px;
+      .dish-img {
+        img {
+          height: 150px;
         }
       }
 
-      .dish-title{
-        font-size: 15px;
-      }
-
-      .buy-container{
-        width: 100%;
-        margin: 10px 0;
-
-        .price span{
+      .dish-content {
+        .dish-title {
           font-size: 15px;
         }
 
-        .btn-container{
+        .dish-weight {
+          font-size: 13px;
+        }
+      }
+
+      .buy-container {
+        width: 100%;
+        margin: 10px 0;
+
+        .btn-container {
           padding: 2px;
           height: 30px;
+          width: 30px;
 
-          span{
+          span {
             line-height: 28px;
             font-size: 28px;
+            color: white;
           }
         }
 
-        .buttons-counter{
-          .btn-bordered{
+        .buttons-counter {
+          .btn-bordered {
             width: 20px;
             height: 20px;
-            border-radius:5px;
-            
-            span{
+            border-radius: 5px;
+
+            span {
               line-height: 20px;
               font-size: 20px;
             }
           }
-          
-          .quantity-dish{
+
+          .quantity-dish {
             margin: 0 5px;
             font-size: 18px;
           }
@@ -255,84 +443,4 @@ main{
       }
     }
   }
-}
-
-@media (max-width: 750px) {
-  .card {
-    width: 100%;
-  }
-  
-  main{
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .categories-list{
-    width: 100%;
-    position: sticky;  
-    top: 0; 
-  }
-
-  .dishes-list{
-    width: 100%;
-    
-     .dish-card{
-       width: 150px;
- 
-     .dish-img{
-          img{
-             height: 100px;
-          }
-     }
-
-     .dish-title{
-       font-size: 15px;
-     }
-   
-     span{
-       font-size: 10px;
-       color: grey;
-     }
-
-     .buy-container{
-       width: 100%;
-       margin: 10px 0;
-
-       .price span{
-         font-size: 15px;
-       }
-
-       .btn-container{
-         padding: 2px;
-         height: 30px;
-         width: 30px;
-
-         span{
-           line-height: 28px;
-           font-size: 28px;
-           color: white;
-           font-weight: bold;
-         }
-       }
-
-       .buttons-counter{
-         .btn-bordered{
-           width: 20px;
-           height: 20px;
-           border-radius:5px;
-           
-           span{
-             line-height: 20px;
-             font-size: 20px;
-           }
-         }
-         
-         .quantity-dish{
-           margin: 0 5px;
-           font-size: 18px;
-         }
-       }
-     }
-   }
- }
 }
