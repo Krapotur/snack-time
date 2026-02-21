@@ -12,92 +12,71 @@
       </div>
     </div>
   </div>
-  <div class="flex-row categories-list">
-    <div class="category-container-select">
-      <h3 class="select-category">Горячее</h3>
+  <nav class="categories" aria-label="Категории меню">
+    <div class="categories-scroll">
+      <button type="button" class="category-pill category-pill--active" aria-pressed="true">Горячее</button>
+      <button type="button" class="category-pill" aria-pressed="false">Напитки</button>
+      <button type="button" class="category-pill" aria-pressed="false">Детям</button>
+      <button type="button" class="category-pill" aria-pressed="false">Мангал</button>
+      <button type="button" class="category-pill" aria-pressed="false">Салаты</button>
+      <button type="button" class="category-pill" aria-pressed="false">Десерты</button>
     </div>
-    <div class="category-container">
-      <h3>Напитки</h3>
-    </div>
-    <div class="category-container">
-      <h3>Детям</h3>
-    </div>
-    <div class="category-container">
-      <h3>Мангал</h3>
-    </div>
-    <div class="category-container">
-      <h3>Салаты</h3>
-    </div>
-    <div class="category-container">
-      <h3>Десерты</h3>
-    </div>
-  </div>
+  </nav>
 
   <div class="dishes-list">
     <div class="dish-card">
       <div class="dish-img">
-        <img src="../assets/images/menu/shorpa.png" alt="shorpa" />
+        <img src="../assets/images/menu/shorpa.png" alt="Шорпа" />
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Шорпа</h3>
-        <span class="dish-weight">200г * 350ккал</span>
+        <span class="dish-weight">200г · 350 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-actual">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 40px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
 
     <div class="dish-card">
       <div class="dish-img">
-        <img src="../assets/images/menu/lagman.png" alt="shorpa" />
+        <img src="../assets/images/menu/lagman.png" alt="Каурма Лагман" />
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Каурма Лагман</h3>
-        <span class="dish-weight">150г * 300ккал</span>
-      </div>
-
-      <div class="buy-container">
-        <div class="price">
-          <span class="price-actual">420 р.</span>
-        </div>
-
-        <div class="buttons-counter">
-          <div>
-            <i class="bi size-icons bi-dash-square"></i>
+        <span class="dish-weight">150г · 300 ккал</span>
+        <div class="buy-container">
+          <div class="price">
+            <span class="price-actual">420 р.</span>
           </div>
-
-          <span class="quantity-dish">3</span>
-
-          <div>
-            <i class="bi size-icons bi-plus-square"></i>
+          <div class="buttons-counter">
+            <button type="button" class="btn-counter" aria-label="Уменьшить"><i class="bi bi-dash-square"></i></button>
+            <span class="quantity-dish">3</span>
+            <button type="button" class="btn-counter" aria-label="Увеличить"><i class="bi bi-plus-square"></i></button>
           </div>
         </div>
-        <!-- <div class="btn-container">
-            <span>+</span>
-        </div> -->
       </div>
     </div>
 
     <div class="dish-card">
       <div class="dish-img">
-        <img src="../assets/images/menu/manty.png" alt="shorpa" />
+        <img src="../assets/images/menu/manty.png" alt="Манты" />
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г * 500ккал</span>
+        <span class="dish-weight">250г · 500 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-discount">330 р.</span>
             <span class="price-old">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 35px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -108,15 +87,15 @@
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г * 500ккал</span>
+        <span class="dish-weight">250г · 500 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-discount">330 р.</span>
             <span class="price-old">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 35px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -127,15 +106,15 @@
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г * 500ккал</span>
+        <span class="dish-weight">250г · 500 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-discount">330 р.</span>
             <span class="price-old">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 35px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -146,15 +125,15 @@
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г * 500ккал</span>
+        <span class="dish-weight">250г · 500 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-discount">330 р.</span>
             <span class="price-old">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 35px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -165,15 +144,15 @@
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г * 500ккал</span>
+        <span class="dish-weight">250г · 500 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-discount">330 р.</span>
             <span class="price-old">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 35px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -184,15 +163,15 @@
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г * 500ккал</span>
+        <span class="dish-weight">250г · 500 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-discount">330 р.</span>
             <span class="price-old">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 35px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -203,15 +182,15 @@
       </div>
       <div class="dish-content">
         <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г * 500ккал</span>
+        <span class="dish-weight">250г · 500 ккал</span>
         <div class="buy-container">
           <div class="price">
             <span class="price-discount">330 р.</span>
             <span class="price-old">390 р.</span>
           </div>
-          <div class="btn-container">
-            <i class="bi bi-plus-circle-fill" style="font-size: 35px; color: rgb(244, 121, 32)"></i>
-          </div>
+          <button type="button" class="btn-add" aria-label="Добавить в корзину">
+            <i class="bi bi-plus-circle-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -222,7 +201,7 @@
     <!--      </div>-->
     <!--      <div class="dish-content">-->
     <!--        <h3 class="dish-title">Манты</h3>-->
-    <!--        <span>250г * 500ккал</span>-->
+    <!--        <span>250г · 500 ккал</span>-->
     <!--        <div class="buy-container">-->
     <!--          <div class="price">-->
     <!--            <span class="price-actual">390 р.</span>-->

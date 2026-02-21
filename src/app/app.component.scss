@@ -98,46 +98,81 @@ main {
   background-color: white;
 }
 
-.categories-list {
+// ——— Категории меню ———
+.categories {
   transform: translatey(100%);
   animation: dishes 1s forwards;
-
-  z-index: 1;
-  margin-bottom: 10px;
-  overflow: auto;
   position: sticky;
   top: 0;
+  z-index: 10;
   width: 100%;
-  padding: 10px 0;
+  margin-bottom: 22px;
+  padding: 14px 0 18px;
+  background: linear-gradient(to bottom, #fff 70%, rgba(255, 255, 255, 0.97));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.categories-scroll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 4px;
+  margin: 0 -4px;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background-color: white;
+  scroll-behavior: smooth;
 
-  .category-container {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 20px;
-    background-color: rgb(235, 235, 235);
-
-    h3 {
-      font-size: 15px;
-      color: $color-text-title;
-    }
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-.category-container-select {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 20px;
-  background: $gradient-color;
-}
+.category-pill {
+  flex-shrink: 0;
+  padding: 12px 22px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  background: #f4f4f5;
+  color: #3f3f46;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease, box-shadow 0.2s ease;
 
-.select-category {
-  font-size: 15px;
-  color: white;
+  &:hover {
+    background: #e4e4e7;
+    border-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--active {
+    border-color: transparent;
+    background: $gradient-color;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(244, 121, 32, 0.35);
+
+    &:hover {
+      background: $gradient-color;
+      filter: brightness(1.06);
+      box-shadow: 0 4px 6px rgba(244, 121, 32, 0.4);
+    }
+
+    &:active {
+      filter: brightness(0.98);
+    }
+  }
 }
 
 .dishes-list {
@@ -153,176 +188,166 @@ main {
   min-width: 300px;
 }
 
-/////////////////// Card Dish
+// ——— Карточки блюд ———
+$card-radius: 20px;
+$card-shadow: 0 4px 20px rgba(34, 60, 80, 0.08);
+$card-shadow-hover: 0 12px 32px rgba(34, 60, 80, 0.12);
+
 .dish-card {
   width: 280px;
-  background-color: white;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 19px -3px rgba(34, 60, 80, 0.11);
-  -moz-box-shadow: 0px 0px 19px -3px rgba(34, 60, 80, 0.11);
-  box-shadow: 0px 0px 19px -3px rgba(34, 60, 80, 0.11);
+  background: #fff;
+  border-radius: $card-radius;
+  overflow: hidden;
+  box-shadow: $card-shadow;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $card-shadow-hover;
+  }
 
   .dish-img {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-color: white;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: linear-gradient(145deg, #f5f5f5 0%, #eee 100%);
 
     img {
       width: 100%;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .dish-card:hover & img {
+      transform: scale(1.05);
     }
   }
 
   .dish-content {
-    padding: 5px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 6px;
+  }
 
-    .dish-weight {
-      font-size: 13px;
-      color: grey;
-    }
+  .dish-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $color-text-title;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .dish-weight {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    letter-spacing: 0.01em;
   }
 
   .buy-container {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin: 25px 0;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
 
-    .size-icons {
-      font-size: 30px;
-      color: rgb(61, 61, 61);
+  .price {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .price-actual {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $color-text-title;
+      letter-spacing: -0.02em;
     }
 
-    .buttons-counter {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-
-      .quantity-dish {
-        margin: 0 5px;
-        font-size: 25px;
-        color: black;
-      }
+    .price-old {
+      font-size: 0.875rem;
+      color: #9ca3af;
+      text-decoration: line-through;
     }
 
-    .price {
-      display: flex;
-      flex-direction: column;
-
-      .price-actual {
-        font-size: 20px;
-        color: $color-text-title;
-        font-weight: bold;
-      }
-
-      .price-old {
-        line-height: 10px;
-        font-size: 15px;
-        text-decoration: line-through;
-      }
-
-      .price-discount {
-        line-height: 20px;
-        font-size: 20px;
-        color: red;
-        font-weight: bold;
-      }
+    .price-discount {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #dc2626;
+      letter-spacing: -0.02em;
     }
+  }
+
+  .btn-add {
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: $primary-color;
+    transition: transform 0.2s ease, color 0.2s ease;
+
+    .bi {
+      font-size: 2.25rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      color: darken($primary-color, 8%);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .buttons-counter {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .btn-counter {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #374151;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    .bi {
+      font-size: 1.75rem;
+    }
+
+    &:hover {
+      color: $primary-color;
+      transform: scale(1.08);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .quantity-dish {
+    min-width: 1.5rem;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $color-text-title;
   }
 }
 
-// @media (max-width: 375px) {
-//   .card {
-//     width: 100%;
-//     height: 180px;
-//   }
-
-//   .title-container {
-//     .coffee-img {
-//       width: 20px;
-//       margin-right: 3px;
-//     }
-
-//     span {
-//       font-size: 15px;
-//       color: $color-text-title;
-//     }
-
-//     h2 {
-//       font-size: 15px;
-//     }
-//   }
-
-//   .title-container img {
-//     padding-left: 5px;
-//     width: 20px;
-//   }
-
-//   .dishes-list {
-//     width: 100%;
-
-//     .dish-card {
-//       width: 150px;
-
-//       .dish-img {
-//         img {
-//           height: 100px;
-//         }
-//       }
-
-//       .dish-title {
-//         font-size: 15px;
-//       }
-
-//       .buy-container {
-//         width: 100%;
-//         margin: 10px 0;
-
-//         .price span {
-//           font-size: 15px;
-//         }
-
-//         .btn-container {
-//           padding: 2px;
-//           height: 30px;
-
-//           span {
-//             line-height: 28px;
-//             font-size: 28px;
-//           }
-//         }
-
-//         .buttons-counter {
-//           .btn-bordered {
-//             width: 20px;
-//             height: 20px;
-//             border-radius: 5px;
-
-//             span {
-//               line-height: 20px;
-//               font-size: 20px;
-//             }
-//           }
-
-//           .quantity-dish {
-//             margin: 0 5px;
-//             font-size: 18px;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
 @media (max-width: 750px) {
+  .category-pill {
+    padding: 10px 18px;
+    font-size: 0.875rem;
+  }
+
   .card {
     width: 100%;
     height: 200px;
@@ -352,40 +377,43 @@ main {
 
   .dishes-list {
     width: 100%;
+    gap: 12px;
 
     .dish-card {
-      width: 180px;
-
-      .dish-img {
-        img {
-          height: 150px;
-        }
-      }
+      width: 160px;
 
       .dish-content {
-        .dish-title {
-          font-size: 15px;
-        }
+        padding: 12px;
+      }
 
-        .dish-weight {
-          font-size: 13px;
-        }
+      .dish-title {
+        font-size: 0.9375rem;
+      }
+
+      .dish-weight {
+        font-size: 0.75rem;
       }
 
       .buy-container {
-        width: 100%;
-        margin: 10px 0;
+        margin-top: 8px;
+        padding-top: 8px;
+      }
 
-        .buttons-counter {
-          .size-icons {
-            font-size: 25px;
-          }
+      .price .price-actual,
+      .price .price-discount {
+        font-size: 1rem;
+      }
 
-          .quantity-dish {
-            margin: 0 5px;
-            font-size: 18px;
-          }
-        }
+      .btn-add .bi {
+        font-size: 1.875rem;
+      }
+
+      .btn-counter .bi {
+        font-size: 1.5rem;
+      }
+
+      .quantity-dish {
+        font-size: 1rem;
       }
     }
   }
