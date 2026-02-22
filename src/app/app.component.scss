@@ -596,9 +596,20 @@ $card-shadow-hover: 0 12px 32px rgba(34, 60, 80, 0.12);
     border: 1px solid rgb(240, 240, 240);
     border-radius: 30%;
   }
+
+  .promo {
+    padding: 20px 10px 10px;
+
+    img {
+      height: 150px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+  }
 }
 
-.footer{
+.footer {
   min-width: 400px;
   position: absolute;
   right: 20%;
@@ -699,14 +710,21 @@ $card-shadow-hover: 0 12px 32px rgba(34, 60, 80, 0.12);
       border: 1px solid rgb(240, 240, 240);
       border-radius: 30%;
     }
+
+    .promo {  
+      img {
+        height: 120px;
+        object-fit: cover;
+      }
+    }
   }
 
-  .footer{
+  .footer {
     width: 100%;
     position: absolute;
     right: 0;
     left: 0;
     bottom: 0;
   }
-  
+
 }
