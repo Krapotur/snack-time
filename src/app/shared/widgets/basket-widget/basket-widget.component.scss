@@ -1,0 +1,37 @@
+$primary-color: rgb(244, 121, 32);
+$color-text-title: rgb(48, 48, 48);
+$color-bg-transparent: rgba(255, 255, 255, 0.648);
+$gradient-color: linear-gradient(180deg, rgba(250, 106, 2, 1.0),
+        rgba(242, 138, 63, 1.0));
+
+.basket-container {
+    z-index: 2;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    display: inline-block;
+
+    button {
+        background-color: $primary-color;
+        padding: 10px 15px;
+        border-radius: 20px;
+        border: none;
+    }
+
+    span {
+        color: white;
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 750px) {
+    .basket-container {
+        .bi{
+            font-size: 17px;
+        }
+
+        span {
+            font-size: 15px;
+        }
+    }
+}
