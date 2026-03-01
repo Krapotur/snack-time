@@ -1,8 +1,15 @@
-<app-basket-widget></app-basket-widget>
+@if (quantityDishesInBasket() > 0) {
+  <app-basket-widget></app-basket-widget>
+}
 
 <main>
   <div class="flex-col card">
-    <img class="img-establishment" src="../assets/images/rest/kochevnik.png" alt="" srcset="" />
+    <img
+      class="img-establishment"
+      src="../assets/images/rest/kochevnik.png"
+      alt=""
+      srcset=""
+    />
     <div class="flex-col title-container">
       <div class="flex-row">
         <img class="coffee-img" src="../assets/icons/coffee.png" alt="coffee" />
@@ -15,115 +22,89 @@
   </div>
   <nav class="categories" aria-label="Категории меню">
     <div class="categories-scroll">
-      <button type="button" class="category-pill category-pill--active" aria-pressed="true">Горячее</button>
-      <button type="button" class="category-pill" aria-pressed="false">Напитки</button>
-      <button type="button" class="category-pill" aria-pressed="false">Детям</button>
-      <button type="button" class="category-pill" aria-pressed="false">Мангал</button>
-      <button type="button" class="category-pill" aria-pressed="false">Салаты</button>
-      <button type="button" class="category-pill" aria-pressed="false">Десерты</button>
+      <button
+        type="button"
+        class="category-pill category-pill--active"
+        aria-pressed="true"
+      >
+        Горячее
+      </button>
+      <button type="button" class="category-pill" aria-pressed="false">
+        Напитки
+      </button>
+      <button type="button" class="category-pill" aria-pressed="false">
+        Детям
+      </button>
+      <button type="button" class="category-pill" aria-pressed="false">
+        Мангал
+      </button>
+      <button type="button" class="category-pill" aria-pressed="false">
+        Салаты
+      </button>
+      <button type="button" class="category-pill" aria-pressed="false">
+        Десерты
+      </button>
     </div>
   </nav>
 
   <div class="dishes-list">
-
-    <div class="dish-card">
-      <div class="dish-img">
-        <span class="dish-badge">Хит</span>
-        <img src="../assets/images/menu/shorpa.png" alt="Шорпа" />
-      </div>
-      <div class="dish-content">
-        <h3 class="dish-title">Шорпа</h3>
-        <span class="dish-weight">200г · 350 ккал</span>
-        <div class="buy-container">
-          <div class="price">
-            <span class="price-actual">390 р.</span>
-          </div>
-          <button type="button" class="btn-add" aria-label="Добавить в корзину">
-            <i class="bi bi-plus-circle-fill"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="dish-card">
-      <div class="dish-img">
-        <span class="dish-badge dish-badge--new">Новинка</span>
-        <img src="../assets/images/menu/lagman.png" alt="Каурма Лагман" />
-      </div>
-      <div class="dish-content">
-        <h3 class="dish-title">Каурма Лагман</h3>
-        <span class="dish-weight">150г · 300 ккал</span>
-        <div class="buy-container">
-          <div class="price">
-            <span class="price-actual">420 р.</span>
-          </div>
-          <div class="buttons-counter">
-            <button type="button" class="btn-counter" aria-label="Уменьшить"><i class="bi bi-dash-square"></i></button>
-            <span class="quantity-dish">3</span>
-            <button type="button" class="btn-counter" aria-label="Увеличить"><i class="bi bi-plus-square"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dish-card">
-      <div class="dish-img">
-        <img src="../assets/images/menu/manty.png" alt="Манты" />
-      </div>
-      <div class="dish-content">
-        <h3 class="dish-title">Манты</h3>
-        <span class="dish-weight">250г · 500 ккал</span>
-        <div class="buy-container">
-          <div class="price">
-            <span class="price-discount">330 р.</span>
-            <span class="price-old">390 р.</span>
-          </div>
-          <button type="button" class="btn-add" aria-label="Добавить в корзину">
-            <i class="bi bi-plus-circle-fill"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="dish-card">
-      <div class="card-inner">
+    @for (dish of basketList(); track dish.id) {
+      <div class="dish-card">
         <div class="dish-img">
-          <img src="../assets/images/menu/manty.png" alt="shorpa" />
+          <span class="dish-badge">Хит</span>
+          <img src="../assets/images/menu/{{ dish.imgSrc }}.png" alt="Шорпа" />
         </div>
         <div class="dish-content">
-          <h3 class="dish-title">Манты</h3>
-          <span class="dish-weight">250г · 500 ккал</span>
+          <h3 class="dish-title">{{ dish.title }}</h3>
+          <span class="dish-weight">{{ dish.weight }}г · 350 ккал</span>
           <div class="buy-container">
             <div class="price">
-              <span class="price-discount">330 р.</span>
-              <span class="price-old">390 р.</span>
+              @if (dish.discount > 0) {
+                <div class="price">
+                  <span class="price-discount"
+                    >{{ state.getDiscountPrice(dish) }} р.</span
+                  >
+                  <span class="price-old">{{ dish.price }} р.</span>
+                </div>
+              } @else {
+                <div class="price-now">
+                  <span>{{ dish.price }} р.</span>
+                </div>
+              }
             </div>
-            <button type="button" class="btn-add" aria-label="Добавить в корзину">
-              <i class="bi bi-plus-circle-fill"></i>
-            </button>
+            @if (dish.quantityInCart == 0) {
+              <button
+                type="button"
+                class="btn-add"
+                aria-label="Добавить в корзину"
+                (click)="addDishInBasket(dish)"
+              >
+                <i class="bi bi-plus-circle-fill"></i>
+              </button>
+            } @else {
+              <div class="buttons-counter">
+                <button
+                  type="button"
+                  class="btn-counter"
+                  aria-label="Уменьшить"
+                  (click)="removeDishInBasket(dish)"
+                >
+                  <i class="bi bi-dash-square"></i>
+                </button>
+                <span class="quantity-dish">{{ dish.quantityInCart }}</span>
+                <button
+                  type="button"
+                  class="btn-counter"
+                  aria-label="Увеличить"
+                  (click)="addDishInBasket(dish)"
+                >
+                  <i class="bi bi-plus-square"></i>
+                </button>
+              </div>
+            }
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="dish-card">
-      <div class="description-dish">
-        <div class="content">
-          <h3>Состав</h3>
-          <hr>
-          <p>
-            Баранинаб вода очищенная, лук репчатый.
-            крупный, морковь, перец болгарский,
-            перец чили, помидор, перец красный жгучий,
-            перец черный, соль, чеснок, кориандр
-            Баранинаб вода очищенная, лук репчатый.
-            крупный, морковь, перец болгарский,
-            перец чили, помидор, перец красный жгучий,
-            перец черный, соль, чеснок, кориандр
-          </p>
-        </div>
-      </div>
-    </div>
-
+    }
   </div>
 </main>

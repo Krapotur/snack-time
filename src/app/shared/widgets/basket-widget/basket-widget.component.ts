@@ -15,7 +15,7 @@ export class BasketWidgetComponent {
   basketList = this.state.basketList; 
   
   getBasketList() {
-    this.state.getBasketBasketList();
+    this.state.getTotalPriceBasket();
   }
 
   goBasketPage() {
