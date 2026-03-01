@@ -1,6 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 import { Dish } from '../interfaces/interfaces';
 
+const MAX_DISHES_IN_CART = 4;
+
 @Injectable({ providedIn: 'root' })
 export class BasketService {
   dishes: Dish[] = [
@@ -16,6 +18,66 @@ export class BasketService {
     },
     {
       id: '2',
+      title: 'Каурма Лагман',
+      isActive: true,
+      weight: '220',
+      price: 390,
+      imgSrc: 'shorpa',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '3',
+      title: 'Шорпа',
+      isActive: true,
+      weight: '150',
+      price: 420,
+      imgSrc: 'lagman',
+      discount: 12,
+      quantityInCart: 0,
+    },
+    {
+      id: '4',
+      title: 'Каурма Лагман',
+      isActive: true,
+      weight: '220',
+      price: 390,
+      imgSrc: 'shorpa',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '5',
+      title: 'Шорпа',
+      isActive: true,
+      weight: '150',
+      price: 420,
+      imgSrc: 'lagman',
+      discount: 12,
+      quantityInCart: 0,
+    },
+    {
+      id: '6',
+      title: 'Каурма Лагман',
+      isActive: true,
+      weight: '220',
+      price: 390,
+      imgSrc: 'shorpa',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '7',
+      title: 'Каурма Лагман',
+      isActive: true,
+      weight: '220',
+      price: 390,
+      imgSrc: 'shorpa',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '8',
       title: 'Каурма Лагман',
       isActive: true,
       weight: '220',
@@ -40,7 +102,7 @@ export class BasketService {
   addDish(dish: Dish) {
     if (this.basketList().includes(dish)) {
       for (let el of this.basketList()) {
-        if (el.id == dish.id) {
+        if (el.id === dish.id && el.quantityInCart <= MAX_DISHES_IN_CART) {
           el.quantityInCart += 1;
         }
       }
@@ -52,21 +114,32 @@ export class BasketService {
   removeDish(dish: Dish) {
     if (this.basketList().includes(dish)) {
       for (let el of this.basketList()) {
-        if (el.id == dish.id) {
-          if(el.quantityInCart != 0)
-          el.quantityInCart -= 1;
+        if (el.id === dish.id) {
+          if (el.quantityInCart !== 0)
+            el.quantityInCart -= 1;
         }
       }
     } else {
-      this.basketList().filter(el => el.id != dish.id);
+      this.basketList().filter(el => el.id !== dish.id);
     }
   }
 
-   getDiscountPrice(dish: Dish) {
+  getDiscountPrice(dish: Dish) {
     let price;
 
     price = dish.price - dish.price * (dish.discount / 100);
-
+    if(dish.quantityInCart > 0){
+     price *= dish.quantityInCart;
+    }
     return Math.round(price);
+  }
+
+  getQuantityDishesInBasket() {
+    let quantityDishes = 0;
+    for (let dish of this.basketList()) {
+      quantityDishes += dish.quantityInCart;
+    }
+
+    return quantityDishes;
   }
 }

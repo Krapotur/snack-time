@@ -1,70 +1,62 @@
 <div class="basket-container">
   <div class="title-container">
     <h3>Мой заказ</h3>
-    <h2>Товары 2 на сумму 740 р.</h2>
+    <h2>Товары {{state.getQuantityDishesInBasket()}} на сумму {{state.getTotalPriceBasket()}} р.</h2>
   </div>
 
   <div class="dish-container">
     @for (dish of basketList(); track dish.id) {
-      @if (dish.quantityInCart > 0) {
-        <div class="dish">
-          <img
-            src="../assets/images/menu/{{ dish.imgSrc }}.png"
-            alt="Каурма Лагман"
-          />
-          <div class="dish-content">
-            <div class="dish-content-top">
-              <span class="title-dish"
-                >{{ dish.title }}, {{ dish.weight }}г</span
-              >
-              <span class="price-actual">{{ dish.price }}р</span>
-            </div>
+    @if (dish.quantityInCart > 0) {
+    <div class="dish">
+      <img src="../assets/images/menu/{{ dish.imgSrc }}.png" alt="Каурма Лагман" />
+      <div class="dish-content">
+        <div class="dish-content-top">
+          <span class="title-dish">{{ dish.title }}, {{ dish.weight }}г</span>
+          <span class="price-actual">{{ dish.price }}р</span>
+        </div>
 
-            <div class="dish-content-bottom">
-              @if (dish.discount > 0) {
-                <div class="price">
-                  <span class="price-discount"
-                    >{{ state.getDiscountPrice(dish) }} р.</span
-                  >
-                  <span class="price-old">{{ dish.price }} р.</span>
-                </div>
-              } @else {
-                <div class="price-now">
-                  <span>{{ dish.price }} р.</span>
-                </div>
-              }
+        <div class="dish-content-bottom">
+          @if (dish.discount > 0) {
+          <div class="price">
+            <span class="price-discount">{{ state.getDiscountPrice(dish) }} р.</span>
+            <span class="price-old">{{ dish.price }} р.</span>
+          </div>
+          } @else {
+          <div class="price-now">
+            <span>{{ dish.price }} р.</span>
+          </div>
+          }
 
-              <div class="buttons-counter">
-                <button
-                  type="button"
-                  class="btn-counter"
-                  aria-label="Уменьшить"
-                  (click)="removeDishInBasket(dish)"
-                >
-                  <i class="bi bi-dash-square"></i>
-                </button>
-                <span class="quantity-dish">{{ dish.quantityInCart }}</span>
-                <button
-                  type="button"
-                  class="btn-counter"
-                  aria-label="Увеличить"
-                  (click)="addDishInBasket(dish)"
-                >
-                  <i class="bi bi-plus-square"></i>
-                </button>
-              </div>
-            </div>
+          <div class="buttons-counter">
+            <button type="button" class="btn-counter" aria-label="Уменьшить" (click)="removeDishInBasket(dish)">
+              <i class="bi bi-dash-square"></i>
+            </button>
+            <span class="quantity-dish">{{ dish.quantityInCart }}</span>
+            <button type="button" class="btn-counter" aria-label="Увеличить" (click)="addDishInBasket(dish)">
+              <i class="bi bi-plus-square"></i>
+            </button>
           </div>
         </div>
-      }
-    }
+      </div>
+    </div>
 
     <hr />
+
+    }
+    }
+
 
     <div class="promo">
       <img src="../assets/images/promo.png" alt="Promo" />
     </div>
   </div>
+  
+  <div class="footer">
+    <div class="footer-btn">
+      <a [routerLink]="['/']"> Назад в Меню </a>
+    </div>
+  </div>
+
 </div>
 
 <!-- <div class="footer">
@@ -73,9 +65,3 @@
     <span>Покажите официанту</span>
   </div>
 </div> -->
-
-<div class="footer">
-  <div class="footer-btn">
-    <a [routerLink]="['/']"> Назад в Меню </a>
-  </div>
-</div>

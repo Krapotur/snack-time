@@ -1,6 +1,7 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+@use "scss/variables";
+@use"assets/bootstrap-icons.css/bootstrap-icons.css";
 
-body{
+body {
   margin: 0;
   padding: 0;
   // background-image: url('./assets/images/back.jpeg');
