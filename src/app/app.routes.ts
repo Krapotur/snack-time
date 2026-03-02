@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home/home-page.component';
-import { BasketPageComponent } from './pages/basket/basket-page.component';
+import { CartPageComponent } from './pages/cart/cart-page.component';
 
 export const routes: Routes = [
   {
@@ -17,7 +17,7 @@ export const routes: Routes = [
   },
   {
     path: 'basket',
-    component: BasketPageComponent,
+    component: CartPageComponent,
     title: 'Мой заказ',
   },
 ];

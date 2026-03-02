@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { BasketService } from '../../services/basket-service.service';
+import { CartService } from '../../services/cartt-service.service';
 
 @Component({
   selector: 'app-basket-widget',
@@ -10,12 +10,12 @@ import { BasketService } from '../../services/basket-service.service';
 })
 export class BasketWidgetComponent {
   private router = inject(Router);
-  state = inject(BasketService);
+  state = inject(CartService);
 
-  basketList = this.state.basketList; 
+  basketList = this.state.cartList; 
   
   getBasketList() {
-    this.state.getTotalPriceBasket();
+    this.state.getTotalPriceCart();
   }
 
   goBasketPage() {

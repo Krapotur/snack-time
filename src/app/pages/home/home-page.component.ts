@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { BasketWidgetComponent } from '../../shared/widgets/basket-widget/basket-widget.component';
-import { BasketService } from '../../shared/services/basket-service.service';
+import { CartService } from '../../shared/services/cartt-service.service';
 import { Dish } from '../../shared/interfaces/interfaces';
 
 @Component({
@@ -10,9 +10,9 @@ import { Dish } from '../../shared/interfaces/interfaces';
   imports: [BasketWidgetComponent],
 })
 export class HomePageComponent {
-  state = inject(BasketService);
+  state = inject(CartService);
 
-  basketList = this.state.basketList;
+  basketList = this.state.cartList;
 
   addDishInBasket(dish: Dish) {
     this.state.addDish(dish);

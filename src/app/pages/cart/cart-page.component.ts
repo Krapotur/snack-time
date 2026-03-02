@@ -1,19 +1,19 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { BasketService } from '../../shared/services/basket-service.service';
+import { CartService } from '../../shared/services/cartt-service.service';
 import { Dish } from '../../shared/interfaces/interfaces';
 
 @Component({
-  selector: 'app-basket-page',
-  templateUrl: './basket-page.component.html',
-  styleUrl: './basket-page.component.scss',
+  selector: 'app-cart-page',
+  templateUrl: './cart-page.component.html',
+  styleUrl: './cart-page.component.scss',
   imports: [RouterLink],
 })
-export class BasketPageComponent implements OnInit {
+export class CartPageComponent implements OnInit {
   private router = inject(Router);
-  state = inject(BasketService);
+  state = inject(CartService);
 
-  basketList = this.state.basketList;
+  cartList = this.state.cartList;
 
   ngOnInit() {}
 
@@ -24,7 +24,7 @@ export class BasketPageComponent implements OnInit {
   getQuantityPositionInOrder(dish: Dish) {
     let quantity: number = dish.quantityInCart;
 
-    for (let el of this.basketList()) {
+    for (let el of this.cartList()) {
       if (el.id == el.id) {
         quantity = dish.quantityInCart;
       }
@@ -33,11 +33,11 @@ export class BasketPageComponent implements OnInit {
     return quantity;
   }
 
-  addDishInBasket(dish: Dish) {
+  addDishInCart(dish: Dish) {
     this.state.addDish(dish);
   }
 
-  removeDishInBasket(dish: Dish) {
+  removeDishInCart(dish: Dish) {
     this.state.removeDish(dish);
   }
 }

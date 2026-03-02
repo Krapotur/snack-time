@@ -4,7 +4,7 @@ import { Dish } from '../interfaces/interfaces';
 const MAX_DISHES_IN_CART = 4;
 
 @Injectable({ providedIn: 'root' })
-export class BasketService {
+export class CartService {
   dishes: Dish[] = [
     {
       id: '1',
@@ -88,39 +88,39 @@ export class BasketService {
     },
   ];
 
-  readonly _basketList = signal<Dish[]>(this.dishes);
-  readonly basketList = this._basketList.asReadonly();
+  readonly _cartList = signal<Dish[]>(this.dishes);
+  readonly cartList = this._cartList.asReadonly();
 
-  getTotalPriceBasket() {
+  getTotalPriceCart() {
     let amount = 0;
-    for (let dish of this.basketList()) {
+    for (let dish of this.cartList()) {
       amount += this.getDiscountPrice(dish) * dish.quantityInCart;
     }
     return amount;
   }
 
   addDish(dish: Dish) {
-    if (this.basketList().includes(dish)) {
-      for (let el of this.basketList()) {
+    if (this.cartList().includes(dish)) {
+      for (let el of this.cartList()) {
         if (el.id === dish.id && el.quantityInCart <= MAX_DISHES_IN_CART) {
           el.quantityInCart += 1;
         }
       }
     } else {
-      this.basketList().push(dish);
+      this.cartList().push(dish);
     }
   }
 
   removeDish(dish: Dish) {
-    if (this.basketList().includes(dish)) {
-      for (let el of this.basketList()) {
+    if (this.cartList().includes(dish)) {
+      for (let el of this.cartList()) {
         if (el.id === dish.id) {
           if (el.quantityInCart !== 0)
             el.quantityInCart -= 1;
         }
       }
     } else {
-      this.basketList().filter(el => el.id !== dish.id);
+      this.cartList().filter(el => el.id !== dish.id);
     }
   }
 
@@ -134,9 +134,9 @@ export class BasketService {
     return Math.round(price);
   }
 
-  getQuantityDishesInBasket() {
+  getQuantityDishesInCart() {
     let quantityDishes = 0;
-    for (let dish of this.basketList()) {
+    for (let dish of this.cartList()) {
       quantityDishes += dish.quantityInCart;
     }
 
