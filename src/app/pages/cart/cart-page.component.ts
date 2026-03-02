@@ -1,18 +1,18 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { CartService } from '../../shared/services/cartt-service.service';
+import { CartService } from '../../shared/services/cart-service.service';
 import { Dish } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss',
-  imports: [RouterLink],
 })
 export class CartPageComponent implements OnInit {
   private router = inject(Router);
   state = inject(CartService);
 
+  isShowAlert = false;
   cartList = this.state.cartList;
 
   ngOnInit() {}
@@ -39,5 +39,14 @@ export class CartPageComponent implements OnInit {
 
   removeDishInCart(dish: Dish) {
     this.state.removeDish(dish);
+  }
+
+  clearCart() {
+    this.state.clearCart();
+    this.showAlert();
+  }
+
+  showAlert() {
+    this.isShowAlert = !this.isShowAlert;
   }
 }

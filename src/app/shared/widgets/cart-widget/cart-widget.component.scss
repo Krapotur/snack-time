@@ -4,7 +4,7 @@ $color-bg-transparent: rgba(255, 255, 255, 0.648);
 $gradient-color: linear-gradient(180deg, rgba(250, 106, 2, 1.0),
         rgba(242, 138, 63, 1.0));
 
-.basket-container {
+.cart-container {
     z-index: 2;
     position: fixed;
     bottom: 30px;
@@ -31,7 +31,7 @@ $gradient-color: linear-gradient(180deg, rgba(250, 106, 2, 1.0),
 }
 
 
-.basket-container:hover {
+.cart-container:hover {
     button {
         padding: 11px 16px;
         -webkit-box-shadow: 0px 0px 5px -2px $primary-color;

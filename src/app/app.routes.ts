@@ -16,7 +16,7 @@ export const routes: Routes = [
     ],
   },
   {
-    path: 'basket',
+    path: 'cart',
     component: CartPageComponent,
     title: 'Мой заказ',
   },

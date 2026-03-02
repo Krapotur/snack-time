@@ -1,5 +1,5 @@
-@if (quantityDishesInBasket() > 0) {
-  <app-basket-widget></app-basket-widget>
+@if (quantityDishesInCart() > 0) {
+  <app-cart-widget></app-cart-widget>
 }
 
 <main>
@@ -48,7 +48,7 @@
   </nav>
 
   <div class="dishes-list">
-    @for (dish of basketList(); track dish.id) {
+    @for (dish of dishes; track dish.id) {
       <div class="dish-card">
         <div class="dish-img">
           <span class="dish-badge">Хит</span>
@@ -77,7 +77,7 @@
                 type="button"
                 class="btn-add"
                 aria-label="Добавить в корзину"
-                (click)="addDishInBasket(dish)"
+                (click)="addDishInCart(dish)"
               >
                 <i class="bi bi-plus-circle-fill"></i>
               </button>
@@ -87,7 +87,7 @@
                   type="button"
                   class="btn-counter"
                   aria-label="Уменьшить"
-                  (click)="removeDishInBasket(dish)"
+                  (click)="removeDishInCart(dish)"
                 >
                   <i class="bi bi-dash-square"></i>
                 </button>
@@ -96,7 +96,7 @@
                   type="button"
                   class="btn-counter"
                   aria-label="Увеличить"
-                  (click)="addDishInBasket(dish)"
+                  (click)="addDishInCart(dish)"
                 >
                   <i class="bi bi-plus-square"></i>
                 </button>

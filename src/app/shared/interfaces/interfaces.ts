@@ -8,3 +8,4 @@ export interface Dish {
   discount: number;
   quantityInCart: number;
 }
+
