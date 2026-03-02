@@ -24,6 +24,7 @@ export class CartService {
         }
       }
     } else {
+      dish.quantityInCart +=1;
       this.cartList().push(dish);
     }
   }

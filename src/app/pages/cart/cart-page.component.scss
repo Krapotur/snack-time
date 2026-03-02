@@ -244,6 +244,7 @@ $primary-color: rgb(244, 121, 32);
   h3 {
     margin: 0;
     display: inline-block;
+    color: var(--color-text-title);
   }
 
   .btn-group {
@@ -252,7 +253,6 @@ $primary-color: rgb(244, 121, 32);
 
     p {
       margin: 0 10px;
-      ;
     }
 
     button {
