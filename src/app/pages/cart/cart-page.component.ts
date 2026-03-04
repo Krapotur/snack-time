@@ -44,6 +44,7 @@ export class CartPageComponent implements OnInit {
   clearCart() {
     this.state.clearCart();
     this.showAlert();
+    this.goHomePage();
   }
 
   showAlert() {

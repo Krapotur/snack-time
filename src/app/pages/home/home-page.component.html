@@ -22,33 +22,22 @@
   </div>
   <nav class="categories" aria-label="Категории меню">
     <div class="categories-scroll">
-      <button
-        type="button"
-        class="category-pill category-pill--active"
-        aria-pressed="true"
-      >
-        Горячее
-      </button>
-      <button type="button" class="category-pill" aria-pressed="false">
-        Напитки
-      </button>
-      <button type="button" class="category-pill" aria-pressed="false">
-        Детям
-      </button>
-      <button type="button" class="category-pill" aria-pressed="false">
-        Мангал
-      </button>
-      <button type="button" class="category-pill" aria-pressed="false">
-        Салаты
-      </button>
-      <button type="button" class="category-pill" aria-pressed="false">
-        Десерты
-      </button>
+      @for (category of categories(); track category.id) {
+        <button
+          type="button"
+          [class]="[
+            'category-pill',
+            category.isActive ? 'category-pill--active' : null,
+          ]"
+        >
+          {{ category.title }}
+        </button>
+      }
     </div>
   </nav>
 
   <div class="dishes-list">
-    @for (dish of dishes; track dish.id) {
+    @for (dish of cartList(); track dish.id) {
       <div class="dish-card">
         <div class="dish-img">
           <span class="dish-badge">Хит</span>

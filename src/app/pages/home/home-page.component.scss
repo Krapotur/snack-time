@@ -98,6 +98,7 @@ main {
 .categories {
   transform: translatey(100%);
   animation: dishes 1s forwards;
+
   position: sticky;
   top: 0;
   z-index: 10;

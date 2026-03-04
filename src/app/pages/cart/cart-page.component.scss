@@ -20,6 +20,10 @@ $primary-color: rgb(244, 121, 32);
   }
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 //-----Корзина----------
 .cart-container {
   min-width: 400px;
@@ -239,7 +243,7 @@ $primary-color: rgb(244, 121, 32);
   align-items: center;
   border-radius: 20px;
   box-shadow: var(--card-shadow);
-  background-color: white;
+  background-color: rgb(253, 210, 190);
 
   h3 {
     margin: 0;
