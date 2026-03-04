@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CartWidgetComponent } from '../../shared/widgets/cart-widget/cart-widget.component';
 import { CartService } from '../../shared/services/cart-service.service';
-import { Dish } from '../../shared/interfaces/interfaces';
+import { Category, Dish } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-home-page',
@@ -11,8 +11,11 @@ import { Dish } from '../../shared/interfaces/interfaces';
 })
 export class HomePageComponent implements OnInit {
   state = inject(CartService);
+
   cartList = this.state.cartList;
   categories = this.state.categoriesList;
+
+  categoryTitle = 'Горячее';
 
   ngOnInit() {}
 
@@ -30,5 +33,10 @@ export class HomePageComponent implements OnInit {
       amount += dish.quantityInCart;
     }
     return amount;
+  }
+
+  selectCategory(category: Category) {
+    this.categoryTitle = category.title;
+    this.state.filterDishesByCategory(category);
   }
 }

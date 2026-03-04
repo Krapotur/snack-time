@@ -25,10 +25,14 @@
       @for (category of categories(); track category.id) {
         <button
           type="button"
-          [class]="[
-            'category-pill',
-            category.isActive ? 'category-pill--active' : null,
-          ]"
+          (click)="selectCategory(category)"
+          [class]="
+            {
+              'category-pill': true,
+              'category-pill--active':
+                category.title == categoryTitle ? true : false,
+            }
+          "
         >
           {{ category.title }}
         </button>

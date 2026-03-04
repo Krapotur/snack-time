@@ -248,12 +248,12 @@ $primary-color: rgb(244, 121, 32);
   h3 {
     margin: 0;
     display: inline-block;
-    color: var(--color-text-title);
+    color: #b55500;
   }
 
   .btn-group {
     display: flex;
-    padding: 20px 0;
+    padding: 25px 0 10px;
 
     p {
       margin: 0 10px;

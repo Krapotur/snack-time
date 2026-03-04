@@ -108,6 +108,108 @@ export class CartService {
     },
   ];
 
+  dishesList: Dish[] = [
+    {
+      id: '1',
+      title: 'Шорпа',
+      isActive: true,
+      weight: '150',
+      price: 420,
+      imgSrc: 'lagman',
+      category: 'Горячее',
+      discount: 12,
+      quantityInCart: 0,
+    },
+    {
+      id: '2',
+      title: 'Каурма Лагман',
+      isActive: true,
+      weight: '220',
+      price: 390,
+      imgSrc: 'shorpa',
+      category: 'Горячее',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '3',
+      title: 'Манты',
+      isActive: true,
+      weight: '170',
+      price: 450,
+      imgSrc: 'manty',
+      category: 'Горячее',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '4',
+      title: 'Салат Цезарь',
+      isActive: true,
+      weight: '200',
+      price: 390,
+      imgSrc: 'salat',
+      category: 'Салаты',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '5',
+      title: 'Чизкейк Нью-Орк',
+      isActive: true,
+      weight: '100',
+      price: 290,
+      imgSrc: 'cheeze',
+      category: 'Десерты',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '6',
+      title: 'Шашлык баранина',
+      isActive: true,
+      weight: '200',
+      price: 690,
+      imgSrc: 'mangal',
+      category: 'Мангал',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '7',
+      title: 'Пицца Маргаритта',
+      isActive: true,
+      weight: '210',
+      price: 540,
+      imgSrc: 'pizza',
+      category: 'Пицца',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '8',
+      title: 'Плов',
+      isActive: true,
+      weight: '220',
+      price: 360,
+      imgSrc: 'plov',
+      category: 'Горячее',
+      discount: 0,
+      quantityInCart: 0,
+    },
+    {
+      id: '9',
+      title: 'Сок Апельсиновый',
+      isActive: true,
+      weight: '0.5',
+      price: 150,
+      imgSrc: 'apelsin',
+      category: 'Напитки',
+      discount: 0,
+      quantityInCart: 0,
+    },
+  ];
+
   categories: Category[] = [
     { id: '1', title: 'Горячее', isActive: true },
     { id: '2', title: 'Напитки', isActive: false },
@@ -170,5 +272,16 @@ export class CartService {
     }
 
     return quantityDishes;
+  }
+
+  filterDishesByCategory(category: Category) {
+   let filteredList = [];
+    for(let dish of this.dishesList){
+      if(dish.category === category.title){
+        filteredList.push(dish);
+      }
+    }
+
+    this.cartList.set(filteredList);
   }
 }
