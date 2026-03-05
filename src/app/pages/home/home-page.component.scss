@@ -115,8 +115,7 @@ main {
   align-items: center;
   gap: 10px;
   overflow-x: auto;
-  padding: 6px 4px;
-  margin: 0 -4px;
+  padding: 6px 5px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
@@ -163,7 +162,7 @@ main {
     &:hover {
       background: var(--gradient-color);
       filter: brightness(1.06);
-      box-shadow: 0 4px 6px rgba(244, 121, 32, 0.4);
+      // box-shadow: 0 4px 6px rgba(244, 121, 32, 0.4);
     }
 
     &:active {

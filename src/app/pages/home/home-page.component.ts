@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CartWidgetComponent } from '../../shared/widgets/cart-widget/cart-widget.component';
 import { CartService } from '../../shared/services/cart-service.service';
 import { Category, Dish } from '../../shared/interfaces/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -11,9 +12,12 @@ import { Category, Dish } from '../../shared/interfaces/interfaces';
 })
 export class HomePageComponent implements OnInit {
   state = inject(CartService);
+  private router = inject(Router);
 
   cartList = this.state.cartList;
   categories = this.state.categoriesList;
+
+  dishCard: any;
 
   categoryTitle = 'Горячее';
 
@@ -26,17 +30,14 @@ export class HomePageComponent implements OnInit {
   removeDishInCart(dish: Dish) {
     this.state.removeDish(dish);
   }
-
-  quantityDishesInCart() {
-    let amount = 0;
-    for (let dish of this.cartList()) {
-      amount += dish.quantityInCart;
-    }
-    return amount;
-  }
-
+  
   selectCategory(category: Category) {
     this.categoryTitle = category.title;
     this.state.filterDishesByCategory(category);
+  }
+
+  selectDish(dish: Dish) {
+    this.state.selectDish(dish);
+    void this.router.navigate(['/dish']);
   }
 }

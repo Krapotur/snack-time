@@ -8,6 +8,7 @@ export interface Dish {
   category: string;
   discount: number;
   quantityInCart: number;
+  description: string;
 }
 
 export interface Category {

@@ -1,4 +1,4 @@
-@if (quantityDishesInCart() > 0) {
+@if (state.getQuantityDishesInCart() > 0) {
   <app-cart-widget></app-cart-widget>
 }
 
@@ -26,13 +26,11 @@
         <button
           type="button"
           (click)="selectCategory(category)"
-          [class]="
-            {
-              'category-pill': true,
-              'category-pill--active':
-                category.title == categoryTitle ? true : false,
-            }
-          "
+          [class]="{
+            'category-pill': true,
+            'category-pill--active':
+              category.title == categoryTitle ? true : false,
+          }"
         >
           {{ category.title }}
         </button>
@@ -42,8 +40,8 @@
 
   <div class="dishes-list">
     @for (dish of cartList(); track dish.id) {
-      <div class="dish-card">
-        <div class="dish-img">
+      <div class="dish-card" >
+        <div class="dish-img" (click)="selectDish(dish)">
           <span class="dish-badge">Хит</span>
           <img src="../assets/images/menu/{{ dish.imgSrc }}.png" alt="Шорпа" />
         </div>
@@ -101,3 +99,5 @@
     }
   </div>
 </main>
+
+

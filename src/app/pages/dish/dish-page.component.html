@@ -1,0 +1,72 @@
+@if (dish != null) {
+  <div class="dish-card">
+    <div class="dish-img">
+      <span class="dish-badge">Хит</span>
+      <i class="bi bi-x-lg dish-badge--close" (click)="goHomePage()"></i>
+      <img src="../assets/images/menu/{{ dish.imgSrc }}.png" alt="Шорпа" />
+    </div>
+    <div class="dish-content">
+      <h3 class="dish-title">{{ dish.title }}</h3>
+      <span class="dish-weight">{{ dish.weight }}г · 350 ккал</span>
+
+      <p>{{ dish.description }}</p>
+
+      <div class="buy-container">
+        <div class="price">
+          @if (dish.discount > 0) {
+            <div class="price">
+              <span class="price-discount"
+                >{{ state.getDiscountPrice(dish) }} р.</span
+              >
+              <span class="price-old">{{ dish.price }} р.</span>
+            </div>
+          } @else {
+            <div class="price-now">
+              <span class="price-actual">{{ dish.price }} р.</span>
+            </div>
+          }
+        </div>
+        @if (dish.quantityInCart == 0) {
+          <button
+            type="button"
+            class="btn-add"
+            aria-label="Добавить в корзину"
+            (click)="addDishInCart(dish)"
+          >
+            Добавить
+          </button>
+        } @else {
+          <div class="buttons-counter">
+            <button
+              type="button"
+              class="btn-counter"
+              aria-label="Уменьшить"
+              (click)="removeDishInCart(dish)"
+            >
+              <i class="bi bi-dash-square"></i>
+            </button>
+            <span class="quantity-dish">{{ dish.quantityInCart }}</span>
+            <button
+              type="button"
+              class="btn-counter"
+              aria-label="Увеличить"
+              (click)="addDishInCart(dish)"
+            >
+              <i class="bi bi-plus-square"></i>
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+
+    @if (state.getQuantityDishesInCart() > 0) {
+      <div class="footer" (click)="goCartPage()">
+        <div class="footer-text">
+          <span>Перейти в корзину</span>
+        </div>
+      </div>
+    }
+  </div>
+} @else{
+    <span>Тут ничего нет...</span>
+}

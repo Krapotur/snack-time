@@ -27,7 +27,7 @@ $primary-color: rgb(244, 121, 32);
 //-----Корзина----------
 .cart-container {
   min-width: 400px;
-  width: 700px;
+  max-width: 700px;
   padding: 30px 10px;
   margin: 0 auto;
   border-left: 1px solid rgb(236, 236, 236);
@@ -75,8 +75,6 @@ $primary-color: rgb(244, 121, 32);
         color: #dc2626;
       }
     }
-
-
 
     h2 {
       margin: 20px 0 0;

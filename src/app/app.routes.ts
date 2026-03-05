@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home/home-page.component';
 import { CartPageComponent } from './pages/cart/cart-page.component';
+import { DishPageComponent } from './pages/dish/dish-page.component';
 
 export const routes: Routes = [
   {
@@ -19,5 +20,9 @@ export const routes: Routes = [
     path: 'cart',
     component: CartPageComponent,
     title: 'Мой заказ',
+  },
+  {
+    path: 'dish',
+    component: DishPageComponent,
   },
 ];
