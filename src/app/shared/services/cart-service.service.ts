@@ -1,11 +1,14 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Category, Dish } from '../interfaces/interfaces';
 import { of } from 'rxjs';
+import { MaterialService } from './material.service';
 
 const MAX_DISHES_IN_CART = 4;
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
+
+  toastService = inject<MaterialService>(MaterialService);
   dishes: Dish[] = [
     {
       id: '1',
@@ -374,6 +377,8 @@ export class CartService {
       for (let el of this.cartList()) {
         if (el.id === dish.id && el.quantityInCart <= MAX_DISHES_IN_CART) {
           el.quantityInCart += 1;
+        } else {
+          this.toastService.toast('s');
         }
       }
     } else {

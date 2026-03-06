@@ -1,12 +1,25 @@
 $primary-color: rgb(244, 121, 32);
 
+@keyframes dish {
+    100% {
+        transform: translateX(0);
+    }
+
+    0% {
+        transform: translateY(100%);
+    }
+}
 
 .dish-card {
+    transform: translateX(-150%);
+    animation: dish 200ms forwards;
+
     min-width: 300px;
     max-width: 700px;
     background: #fff;
     overflow: hidden;
     box-shadow: var(--card-shadow);
+    border-radius: 20px 20px 0 0;
     margin: 0 auto;
 
     .dish-img {
@@ -27,7 +40,7 @@ $primary-color: rgb(244, 121, 32);
             font-weight: 600;
             letter-spacing: 0.04em;
             line-height: 1.2;
-            border-radius: 0 0 17px 0;
+            border-radius: 0 0 20px 0;
         }
 
         .dish-badge--close {
@@ -196,9 +209,8 @@ $primary-color: rgb(244, 121, 32);
 
         .dish-img {
             .dish-badge {
-                padding: 6px 12px;
+                padding: 6px 15px;
                 font-size: 1.0rem;
-                border-radius: 0 0 12px 0;
             }
 
             .dish-badge--close {
