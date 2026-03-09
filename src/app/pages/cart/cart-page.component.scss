@@ -26,12 +26,12 @@ $primary-color: rgb(244, 121, 32);
 
 //-----Корзина----------
 .cart-container {
-  min-width: 400px;
-  max-width: 700px;
-  padding: 30px 10px;
-  margin: 0 auto;
-  border-left: 1px solid rgb(236, 236, 236);
-  border-right: 1px solid rgb(236, 236, 236);
+  max-width: 720px;
+  padding: 24px 16px 20px;
+  margin: 24px auto 32px;
+  border-radius: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
 
   .title-container {
     z-index: 1;
@@ -85,28 +85,25 @@ $primary-color: rgb(244, 121, 32);
     transform: translateX(-150%);
     animation: title 200ms forwards;
 
-    padding: 20px 10px;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
+    padding: 16px 4px 8px;
   }
 
   .dish {
-    padding: 0 10px;
+    padding: 8px 8px;
     display: flex;
+    gap: 14px;
 
     img {
-      margin-right: 20px;
-      width: 100px;
-      height: 100px;
-      border-radius: 15px;
+      margin-right: 0;
+      width: 96px;
+      height: 96px;
+      border-radius: 18px;
       object-fit: cover;
     }
 
     .dish-content {
       width: 100%;
-      padding: 5px 0;
+      padding: 2px 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -126,6 +123,7 @@ $primary-color: rgb(244, 121, 32);
     .dish-content-bottom {
       display: flex;
       justify-content: space-between;
+      padding-top: 20px;
 
       .price-now {
         font-size: 1.25rem;
@@ -212,18 +210,18 @@ $primary-color: rgb(244, 121, 32);
   background-color: white;
   bottom: 0;
   position: sticky;
-  padding: 10px 20px 20px;
+  padding: 10px 16px 16px;
 }
 
 .footer-text {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 16px 0;
   border-radius: 30px;
   background: var(--gradient-color);
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 //Alert dialog
@@ -273,8 +271,7 @@ $primary-color: rgb(244, 121, 32);
 
 @media (max-width: 700px) {
   .cart-container {
-    width: 100%;
-    padding: 0;
+    padding: 16px 12px 12px 5px;
     margin: 0;
 
     .title-container {
@@ -289,11 +286,12 @@ $primary-color: rgb(244, 121, 32);
     }
 
     .dish {
-      padding: 0 20px 0 10px;
+      padding: 8px 4px;
+      align-items: flex-start;
 
       img {
-        width: 80px;
-        height: 80px;
+        width: 88px;
+        height: 88px;
       }
 
       .dish-content-top {
@@ -311,7 +309,6 @@ $primary-color: rgb(244, 121, 32);
           .price-discount {
             font-size: 1.0rem;
             line-height: 0.7rem;
-
           }
 
           .price-old {
@@ -355,8 +352,8 @@ $primary-color: rgb(244, 121, 32);
   }
 
   .footer-text {
-    padding: 15px 0;
-    font-size: 18px;
+    padding: 14px 0;
+    font-size: 16px;
   }
 
   .footer-btn {
