@@ -175,11 +175,11 @@ main {
   transform: translatey(100%);
   animation: dishes 800ms forwards;
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin: 0 auto;
-  justify-content: space-evenly;
-  gap: 10px;
+  justify-items: center;
+  gap: 16px;
   padding-bottom: 30px;
   min-width: 300px;
 }
@@ -407,6 +407,7 @@ main {
   .dishes-list {
     width: 100%;
     gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
     .dish-card {
       width: 160px;
