@@ -1,11 +1,13 @@
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Category, Dish } from '../interfaces/interfaces';
 import { of } from 'rxjs';
+import { ToastService } from './toast.service';
 
 const MAX_DISHES_IN_CART = 4;
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
+  toastService = inject(ToastService);
 
   dishes: Dish[] = [
     {
@@ -271,12 +273,12 @@ export class CartService {
   addDish(dish: Dish) {
     if (this.cartList().includes(dish)) {
       for (let el of this.cartList()) {
+        if (el.id === dish.id && el.quantityInCart == MAX_DISHES_IN_CART) {
+          this.toastService.show('Превышен лимит на количество блюд');
+        }
         if (el.id === dish.id && el.quantityInCart <= MAX_DISHES_IN_CART) {
           el.quantityInCart += 1;
-        } 
-        // else {
-        //   this.toastService.toast('s');
-        // }
+        }
       }
     } else {
       dish.quantityInCart += 1;
