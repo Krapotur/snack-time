@@ -5,10 +5,7 @@
 <main>
   <section class="hero" aria-label="Информация о ресторане">
     <div class="hero-bg">
-      <img
-        src="../assets/images/rest/kochevnik.png"
-        alt="Мудрый кочевник"
-      />
+      <img src="../assets/images/rest/kochevnik.png" alt="Мудрый кочевник" />
       <div class="hero-overlay"></div>
     </div>
 
@@ -18,21 +15,15 @@
         <span>Кафе · Восточная кухня</span>
       </div>
       <h1 class="hero-title">«Мудрый кочевник»</h1>
-      <p class="hero-subtitle">
-        Ароматный кофе, домашние блюда и десерты для тёплых встреч.
-      </p>
+      <div >
+        <p class="hero-subtitle">
+          Ароматный кофе, домашние блюда и десерты для тёплых встреч.
+        </p>
+      </div>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <i class="bi bi-clock"></i>
           <span>25–40 мин</span>
-        </div>
-        <div class="hero-meta-item">
-          <i class="bi bi-star-fill"></i>
-          <span>4.8</span>
-        </div>
-        <div class="hero-meta-item">
-          <i class="bi bi-bag-check"></i>
-          <span>Мин. заказ 500 ₽</span>
         </div>
       </div>
     </div>
@@ -58,7 +49,7 @@
 
   <div class="dishes-list">
     @for (dish of cartList(); track dish.id) {
-      <div class="dish-card" >
+      <div class="dish-card">
         <div class="dish-img" (click)="selectDish(dish)">
           <span class="dish-badge">Хит</span>
           <img src="../assets/images/menu/{{ dish.imgSrc }}.png" alt="Шорпа" />
@@ -117,5 +108,3 @@
     }
   </div>
 </main>
-
-
