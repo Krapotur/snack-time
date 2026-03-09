@@ -1,14 +1,12 @@
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Category, Dish } from '../interfaces/interfaces';
 import { of } from 'rxjs';
-import { MaterialService } from './material.service';
 
 const MAX_DISHES_IN_CART = 4;
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
 
-  toastService = inject<MaterialService>(MaterialService);
   dishes: Dish[] = [
     {
       id: '1',
@@ -249,108 +247,6 @@ export class CartService {
     },
   ];
 
-  // [
-  //   {
-  //     id: '1',
-  //     title: 'Шорпа',
-  //     isActive: true,
-  //     weight: '150',
-  //     price: 420,
-  //     imgSrc: 'lagman',
-  //     category: 'Горячее',
-  //     discount: 12,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '2',
-  //     title: 'Каурма Лагман',
-  //     isActive: true,
-  //     weight: '220',
-  //     price: 390,
-  //     imgSrc: 'shorpa',
-  //     category: 'Горячее',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '3',
-  //     title: 'Манты',
-  //     isActive: true,
-  //     weight: '170',
-  //     price: 450,
-  //     imgSrc: 'manty',
-  //     category: 'Горячее',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '4',
-  //     title: 'Салат Цезарь',
-  //     isActive: true,
-  //     weight: '200',
-  //     price: 390,
-  //     imgSrc: 'salat',
-  //     category: 'Салаты',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '5',
-  //     title: 'Чизкейк Нью-Орк',
-  //     isActive: true,
-  //     weight: '100',
-  //     price: 290,
-  //     imgSrc: 'cheeze',
-  //     category: 'Десерты',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '6',
-  //     title: 'Шашлык баранина',
-  //     isActive: true,
-  //     weight: '200',
-  //     price: 690,
-  //     imgSrc: 'mangal',
-  //     category: 'Мангал',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '7',
-  //     title: 'Пицца Маргаритта',
-  //     isActive: true,
-  //     weight: '210',
-  //     price: 540,
-  //     imgSrc: 'pizza',
-  //     category: 'Пицца',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '8',
-  //     title: 'Плов',
-  //     isActive: true,
-  //     weight: '220',
-  //     price: 360,
-  //     imgSrc: 'plov',
-  //     category: 'Горячее',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  //   {
-  //     id: '9',
-  //     title: 'Сок Апельсиновый',
-  //     isActive: true,
-  //     weight: '0.5',
-  //     price: 150,
-  //     imgSrc: 'apelsin',
-  //     category: 'Напитки',
-  //     discount: 0,
-  //     quantityInCart: 0,
-  //   },
-  // ];
-
   categories: Category[] = [
     { id: '1', title: 'Горячее', isActive: true },
     { id: '2', title: 'Напитки', isActive: false },
@@ -377,9 +273,10 @@ export class CartService {
       for (let el of this.cartList()) {
         if (el.id === dish.id && el.quantityInCart <= MAX_DISHES_IN_CART) {
           el.quantityInCart += 1;
-        } else {
-          this.toastService.toast('s');
-        }
+        } 
+        // else {
+        //   this.toastService.toast('s');
+        // }
       }
     } else {
       dish.quantityInCart += 1;
