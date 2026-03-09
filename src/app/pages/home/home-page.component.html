@@ -3,23 +3,41 @@
 }
 
 <main>
-  <div class="flex-col card">
-    <img
-      class="img-establishment"
-      src="../assets/images/rest/kochevnik.png"
-      alt=""
-      srcset=""
-    />
-    <div class="flex-col title-container">
-      <div class="flex-row">
+  <section class="hero" aria-label="Информация о ресторане">
+    <div class="hero-bg">
+      <img
+        src="../assets/images/rest/kochevnik.png"
+        alt="Мудрый кочевник"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-chip">
         <img class="coffee-img" src="../assets/icons/coffee.png" alt="coffee" />
-        <span>Кафе</span>
+        <span>Кафе · Восточная кухня</span>
       </div>
-      <div class="flex-row">
-        <h2>«Мудрый кочевник»</h2>
+      <h1 class="hero-title">«Мудрый кочевник»</h1>
+      <p class="hero-subtitle">
+        Ароматный кофе, домашние блюда и десерты для тёплых встреч.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <i class="bi bi-clock"></i>
+          <span>25–40 мин</span>
+        </div>
+        <div class="hero-meta-item">
+          <i class="bi bi-star-fill"></i>
+          <span>4.8</span>
+        </div>
+        <div class="hero-meta-item">
+          <i class="bi bi-bag-check"></i>
+          <span>Мин. заказ 500 ₽</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
   <nav class="categories" aria-label="Категории меню">
     <div class="categories-scroll">
       @for (category of categories(); track category.id) {
