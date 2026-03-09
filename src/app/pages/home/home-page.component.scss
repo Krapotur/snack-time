@@ -179,7 +179,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin: 0 auto;
   justify-items: center;
-  gap: 16px;
+  row-gap: 15px;
+  column-gap: 15px;
   padding-bottom: 30px;
   min-width: 300px;
 }
@@ -189,7 +190,7 @@ main {
 
 .dish-card {
   width: 280px;
-  height: 360px;
+  min-height: 250px;
   background: #fff;
   border-radius: var(--card-radius);
   overflow: hidden;
@@ -242,11 +243,11 @@ main {
   }
 
   .dish-content {
-    padding: 16px;
+    padding: 14px 14px 12px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 6px;
+    gap: 4px;
   }
 
   .dish-title {
@@ -258,7 +259,7 @@ main {
   }
 
   .dish-weight {
-    font-size: 0.8125rem;
+    font-size: 0.8rem;
     color: #6b7280;
     letter-spacing: 0.01em;
   }
@@ -267,9 +268,9 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin-top: 12px;
-    padding-top: 12px;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
 
@@ -406,7 +407,8 @@ main {
 
   .dishes-list {
     width: 100%;
-    gap: 12px;
+    row-gap: 15px;
+    column-gap: 15px;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
     .dish-card {

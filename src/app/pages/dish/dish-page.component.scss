@@ -15,12 +15,12 @@ $primary-color: rgb(244, 121, 32);
     animation: dish 200ms forwards;
 
     min-width: 300px;
-    max-width: 700px;
+    max-width: 640px;
     background: #fff;
     overflow: hidden;
     box-shadow: var(--card-shadow);
     border-radius: 20px 20px 0 0;
-    margin: 0 auto;
+    margin: 24px auto;
 
     .dish-img {
         position: relative;
@@ -75,11 +75,11 @@ $primary-color: rgb(244, 121, 32);
     }
 
     .dish-content {
-        padding: 16px;
+        padding: 20px 20px 18px;
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 6px;
+        gap: 8px;
     }
 
     .dish-title {
@@ -91,18 +91,25 @@ $primary-color: rgb(244, 121, 32);
     }
 
     .dish-weight {
-        font-size: 0.8125rem;
+        font-size: 0.8rem;
         color: #6b7280;
         letter-spacing: 0.01em;
+    }
+
+    p {
+        margin: 8px 0 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #4b5563;
     }
 
     .buy-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
-        margin-top: 12px;
-        padding-top: 12px;
+        gap: 16px;
+        margin-top: 16px;
+        padding-top: 14px;
         border-top: 1px solid rgba(0, 0, 0, 0.06);
     }
 
