@@ -13,7 +13,7 @@ body {
 /* Toast notifications */
 .app-toast-container {
   position: fixed;
-  top: 16px;
+  top: 30px;
   right: 16px;
   z-index: 1300;
   display: flex;
@@ -27,7 +27,7 @@ body {
   max-width: 320px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.96);
+  background: var(--primary-color);
   color: #f9fafb;
   font-size: 0.9rem;
   line-height: 1.4;

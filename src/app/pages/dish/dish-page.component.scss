@@ -19,7 +19,7 @@ $primary-color: rgb(244, 121, 32);
     background: #fff;
     overflow: hidden;
     box-shadow: var(--card-shadow);
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     margin: 24px auto;
 
     .dish-img {
@@ -88,6 +88,7 @@ $primary-color: rgb(244, 121, 32);
         color: var(--color-text-title);
         letter-spacing: -0.02em;
         line-height: 1.3;
+        margin-bottom: 0;
     }
 
     .dish-weight {
@@ -96,8 +97,11 @@ $primary-color: rgb(244, 121, 32);
         letter-spacing: 0.01em;
     }
 
-    p {
+    .dish-description {
         margin: 8px 0 0;
+    }
+
+    p {
         font-size: 0.95rem;
         line-height: 1.5;
         color: #4b5563;
@@ -155,7 +159,7 @@ $primary-color: rgb(244, 121, 32);
         }
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.02);
         }
 
         &:active {

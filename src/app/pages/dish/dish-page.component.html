@@ -8,8 +8,10 @@
     <div class="dish-content">
       <h3 class="dish-title">{{ dish.title }}</h3>
       <span class="dish-weight">{{ dish.weight }}г · 350 ккал</span>
-
-      <p>{{ dish.description }}</p>
+      
+      <div class="dish-description">
+        <p>{{ dish.description }}</p>
+      </div>
 
       <div class="buy-container">
         <div class="price">
@@ -67,6 +69,6 @@
       </div>
     }
   </div>
-} @else{
-    <span>Тут ничего нет...</span>
+} @else {
+  <span>Тут ничего нет...</span>
 }
