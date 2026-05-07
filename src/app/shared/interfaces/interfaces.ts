@@ -12,8 +12,16 @@ export interface Restaurant {
   typePlace: string
 }
 
+export interface Kitchen {
+  _id: string,
+  position?: number,
+  status?: boolean,
+  title: string,
+  imgSrc?: string
+}
+
 export interface Category{
-  _id?: string,
+  _id: string,
   isDrink: boolean,
   position?: number,
   status?: boolean,
