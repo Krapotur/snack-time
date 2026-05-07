@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home/home-page.component';
 import { CartPageComponent } from './pages/cart/cart-page.component';
 import { DishPageComponent } from './pages/dish/dish-page.component';
+import { RestaurantsPageComponent } from './pages/restaurants/restaurants-page.component';
 
 export const routes: Routes = [
   {
@@ -24,5 +25,13 @@ export const routes: Routes = [
   {
     path: 'dish',
     component: DishPageComponent,
+  },
+  {
+    path: 'rest',
+    component: RestaurantsPageComponent,
+  },
+  {
+    path: 'rest/:id',
+    component: RestaurantsPageComponent,
   },
 ];

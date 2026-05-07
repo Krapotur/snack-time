@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="title-container">
+        <h2>
+            Список ресторанов
+        </h2>
+    </div>
+
+    <div class="rest-container">
+        @for (restaurant of restaurants; track restaurant._id) {
+        <div class="rest">
+            <img [src]="restaurant.imgSrc" [alt]="restaurant.title" />
+            <div class="rest-content">
+                <div class="rest-content-top">
+                    <span class="title-rest">{{ restaurant.title }}</span>
+                    <span class="rest-id">ID: {{ restaurant._id }}</span>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        }
+    </div>
+</div>

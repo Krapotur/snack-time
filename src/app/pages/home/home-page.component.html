@@ -31,7 +31,7 @@
 
   <nav class="categories" aria-label="Категории меню">
     <div class="categories-scroll">
-      @for (category of categories(); track category.id) {
+      @for (category of categories; track category._id) {
         <button
           type="button"
           (click)="selectCategory(category)"
